@@ -1,0 +1,68 @@
+<form #form1="ngForm">
+  <div class="firstLine" fxLayout="row" fxLayoutAlign="start none">
+    <!-- !Size -->
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Size</mat-label>
+        <mat-select
+          name="size"
+          ngModel
+          required
+          #newItem="ngModel"
+          [(ngModel)]="userDataForm1.size"
+        >
+          <mat-option *ngFor="let size of sizes" [value]="size.value">
+            {{ size.viewValue }}
+          </mat-option>
+        </mat-select>
+ 
+  <mat-error  *ngIf="userDataForm1.size && userDataForm1.size.invalid && userDataForm1.size.touched">This field is required</mat-error>
+      </mat-form-field>
+    </div>
+    <!-- !Quantity -->
+    <div>
+      <mat-form-field appearance="outline" class="example-form">
+        <mat-label>Quantity</mat-label>
+        <input
+          type="number"
+          matInput
+          name="quantity"
+          ngModel
+          required
+          #quantity="ngModel"
+          [(ngModel)]="userDataForm1.quantity"
+        /><mat-error
+          class="errorMessage"
+          *ngIf="quantity && quantity.invalid && quantity.touched"
+          >This field is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <!-- !Brand -->
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Brand</mat-label>
+        <mat-select
+          name="brand"
+          ngModel
+          required
+          #brand="ngModel"
+          [(ngModel)]="userDataForm1.brand"
+        >
+          <mat-option *ngFor="let brand of brands" [value]="brand.value">
+            {{ brand.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="brand && brand.invalid && brand.touched"
+          >This field is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+  </div>
+
+
+  <div class="buttons" fxLayout="row" fxLayoutAlign="space-between none">
+    <button mat-button matStepperPrevious class="clearButton">Clear</button>
+    <button mat-button matStepperNext class="blackButton" [disabled]="form1.invalid" (click)="storeInputsInCom()">Next</button>
+  </div>
+</form>

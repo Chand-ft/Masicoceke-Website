@@ -1,0 +1,102 @@
+<form #form2="ngForm">
+  <!-- !first line of inputs -->
+  <!-- !name -->
+  <div class="firstLine" fxLayout="row" fxLayoutAlign="start centre">
+    <!-- TODO I put a margin of 40px on the right because fxLayoutgap="40px" didn't work -->
+    <!-- !Remove from scss  -->
+    <div class="inputBox">
+      <mat-form-field appearance="outline" class="example-form">
+        <mat-label>Name</mat-label>
+        <input
+          type="text"
+          matInput
+          name="name"
+          ngModel
+          required
+          #name="ngModel"
+          
+          [(ngModel)]="userDataForm2.name"
+        /><mat-error
+          class="errorMessage"
+          *ngIf="name && name.invalid && name.touched"
+          >This field is required</mat-error
+        >
+
+      </mat-form-field>
+    </div>
+    <!-- !surname -->
+    <div class="inputBox">
+      <mat-form-field appearance="outline" class="example-form">
+        <mat-label>Surname</mat-label>
+        <input
+          type="text"
+          matInput
+          name="surname"
+          ngModel
+          required
+          #surname="ngModel"
+          [(ngModel)]="userDataForm2.surname"
+        /><mat-error
+          class="errorMessage"
+          *ngIf="surname && surname.invalid && surname.touched"
+          >This field is required</mat-error
+        >
+       
+      </mat-form-field>
+    </div>
+
+    <!-- !second line of inputs -->
+
+    <!-- !Age -->
+  </div>
+
+  <div class="firstLine" fxLayout="row" fxLayoutAlign="start centre">
+    <div class="inputBox">
+      <mat-form-field appearance="outline" class="example-form">
+        <mat-label>Age</mat-label>
+        <input
+          type="number"
+          matInput
+          name="age"
+          ngModel
+          required
+          #age="ngModel"
+          [(ngModel)]="userDataForm2.age"
+          minlength="1"
+          maxlength="2"
+        /><mat-error
+          class="errorMessage"
+          *ngIf="age && age.invalid && age.touched"
+          >This field is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <!-- !phone number -->
+    <div class="inputBox">
+      <mat-form-field appearance="outline" class="example-form">
+        <mat-label>Number</mat-label>
+        <input
+          type="tel"
+          matInput
+          name="phoneNumber"
+          ngModel
+          required
+          #phoneNumber="ngModel"
+          [(ngModel)]="userDataForm2.phoneNumber"
+          minlength="10"
+          maxlength="10"
+        /><mat-error
+          class="errorMessage"
+          *ngIf="phoneNumber && phoneNumber.invalid && phoneNumber.touched"
+          >This field is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="buttons" fxLayout="row" fxLayoutAlign="space-between none">
+    <button mat-button matStepperPrevious class="clearButton">Back</button>
+    <button mat-button matStepperNext class="blackButton" [disabled]="form2.invalid" (click)="storeInputsInCom()">Next</button>
+
+  </div>
+</form>

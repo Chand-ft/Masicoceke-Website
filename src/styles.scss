@@ -1,0 +1,44 @@
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #073855;
+  color: white;
+  margin: 0%;
+  height: 100%;
+}
+.panels {
+  padding: 45px 25px;
+  .leftPanelDiv {
+    margin-right: 40px;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .rightPanelDiv {
+    width: 100%;
+   
+    form {
+      margin-right: auto;
+      width: 100%;
+      .inputBox {
+        margin-right: 40px;
+      }
+    }
+    .mat-stepper-vertical {
+      background-color: transparent;
+      .blackButton {
+        color: inherit;
+        background: black;
+      }
+      .clearButton {
+        border: #686868 1px solid !important;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .blackButtonLong {
+        color: inherit;
+        background: black;
+        // !make width 509px
+      }
+    }
+  }
+}

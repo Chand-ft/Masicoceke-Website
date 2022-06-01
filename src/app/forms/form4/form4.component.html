@@ -1,0 +1,94 @@
+<form #form4="ngForm">
+    <!-- !first line of inputs -->
+    <!-- !cardNumber -->
+    <div class="firstLine" fxLayout="row" fxLayoutAlign="start centre"  >
+        <div class="inputBox">
+            <!-- TODO I put a margin of 40px on the right because fxLayoutgap="40px" didn't work -->
+            <!-- !Remove from scss  -->
+          <mat-form-field appearance="outline" class="example-form">
+            <mat-label>Card number</mat-label>
+            <input type="number"
+              matInput
+              name="cardNumber"
+              ngModel
+              required
+              #cardNumber="ngModel"
+              [(ngModel)]="userDataForm4.cardNumber"
+              minlength="16"
+              maxlength="16"
+            /><mat-error
+              class="errorMessage"
+              *ngIf="cardNumber && cardNumber.invalid && cardNumber.touched"
+              >This field is required</mat-error
+            >
+          </mat-form-field>
+      </div>
+    <!-- !second line of inputs -->
+
+      <!-- !expiryDate -->
+        <div class="inputBox">
+           
+
+            <mat-form-field appearance="outline">
+              <mat-label>Expiry date</mat-label>
+              <input matInput [matDatepicker]="picker" name="expiryDate"
+              ngModel
+              required
+              #expiryDate="ngModel"
+              [(ngModel)]="userDataForm4.expiryDate">
+              <mat-error
+                class="errorMessage"
+                *ngIf="expiryDate && expiryDate.invalid && expiryDate.touched"
+                >This field is required</mat-error
+              >
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+
+
+        </div>
+
+
+    <!-- !third line of inputs -->
+
+
+<!-- !cvc -->
+      </div>
+
+      <div class="firstLine" fxLayout="row" fxLayoutAlign="start centre">
+        <div class="inputBox">
+          <mat-form-field appearance="outline" class="example-form">
+            <mat-label>CVC</mat-label>
+            <input type="number"
+              matInput
+              name="cvc"
+              ngModel
+              required
+              #cvc="ngModel"
+              [(ngModel)]="userDataForm4.cvc"
+              minlength="3"
+              maxlength="3"
+            /><mat-error
+              class="errorMesscvc"
+              *ngIf="cvc && cvc.invalid && cvc.touched"
+              >This field is required</mat-error
+            >
+          </mat-form-field>
+      </div>
+     
+
+      </div>
+      <div
+      class="buttons"
+      fxLayout="row"
+      fxLayoutAlign="space-between none"
+    >
+      <button mat-button matStepperPrevious class="clearButton">
+        Back
+      </button>
+      <button mat-button matStepperNext class="blackButton" [disabled]="form4.invalid" (click)="sendDataToParentCom()">Next</button>
+
+    </div>
+
+</form>

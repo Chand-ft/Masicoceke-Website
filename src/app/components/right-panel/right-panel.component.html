@@ -1,0 +1,79 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <p>Order your washing powder Now</p>
+</div>
+
+<div>
+  <mat-stepper orientation="vertical">
+    <!-- !Step 1 -->
+      <mat-step>
+        <ng-template matStepLabel
+        >Choose your brand, size and quantity</ng-template>
+        <ng-template matStepContent>
+        
+       <app-form1 (childStringData)="addToParentArray($event)"></app-form1>
+      </ng-template>
+
+      </mat-step>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- !Step 2 -->
+
+      <mat-step>
+        <ng-template matStepLabel>Personal Details</ng-template>
+        <ng-template matStepContent>
+          <app-form2 (childStringData)="addToParentArray($event)"></app-form2>
+
+
+
+          
+        </ng-template>
+      </mat-step>
+
+
+    <!-- !Step 3 -->
+      <mat-step>
+        <ng-template matStepLabel>Shipping details</ng-template>
+        <ng-template matStepContent>
+          <app-form3 (childStringData)="addToParentArray($event)"></app-form3>
+
+     
+        </ng-template>
+      </mat-step>
+    <!-- !Step 4 -->
+      <mat-step>
+        <ng-template matStepLabel>Card details</ng-template>
+        <ng-template matStepContent>
+          <app-form4 (childStringData)="addToParentArray($event)"></app-form4>
+
+         
+        </ng-template>
+      </mat-step>
+
+    <!-- !Step 5 -->
+      <mat-step>
+        <ng-template matStepLabel>Confirm details</ng-template>
+        <app-form5 [item]="currentItem"></app-form5>
+        <button mat-button matStepperPrevious class="clearButton">Back</button>
+        <span>
+          <button mat-button matStepperNext class="blackButton">
+            Order
+          </button></span
+        >
+      </mat-step>
+  </mat-stepper>
+</div>

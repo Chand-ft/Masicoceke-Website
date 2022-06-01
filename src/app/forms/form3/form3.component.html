@@ -1,0 +1,105 @@
+<form #form3="ngForm">
+
+    <!-- !first line of inputs -->
+    <!-- !houseNumber -->
+    <div class="firstLine" fxLayout="row" fxLayoutAlign="start centre"  >
+        <div class="inputBox">
+            <!-- TODO I put a margin of 40px on the right because fxLayoutgap="40px" didn't work -->
+            <!-- !Remove from scss  -->
+          <mat-form-field appearance="outline" class="example-form">
+            <mat-label>House number</mat-label>
+            <input type="number"
+              matInput
+              name="houseNumber"
+              ngModel
+              required
+              #houseNumber="ngModel"
+              [(ngModel)]="userDataForm3.houseNumber"
+            /><mat-error
+              class="errorMessage"
+              *ngIf="houseNumber && houseNumber.invalid && houseNumber.touched"
+              >This field is required</mat-error
+            >
+          </mat-form-field>
+      </div>
+      <!-- !street -->
+        <div class="inputBox">
+            <mat-form-field appearance="outline" class="example-form">
+              <mat-label>Street</mat-label>
+              <input type="text"
+                matInput
+                name="street"
+                ngModel
+                required
+                #street="ngModel"
+                [(ngModel)]="userDataForm3.street"
+              /><mat-error
+                class="errorMessage"
+                *ngIf="street && street.invalid && street.touched"
+                >This field is required</mat-error
+              >
+            </mat-form-field>
+        </div>
+
+
+    <!-- !second line of inputs -->
+
+<!-- !town -->
+      </div>
+
+      <div class="firstLine" fxLayout="row" fxLayoutAlign="start centre">
+        <div class="inputBox">
+          <mat-form-field appearance="outline" class="example-form">
+            <mat-label>Town</mat-label>
+            <input type="text"
+              matInput
+              name="town"
+              ngModel
+              required
+              #town="ngModel"
+              [(ngModel)]="userDataForm3.town"
+            /><mat-error
+              class="errorMessage"
+              *ngIf="town && town.invalid && town.touched"
+              >This field is required</mat-error
+            >
+          </mat-form-field>
+      </div>
+      <!-- !area code -->
+        <div class="inputBox">
+            <mat-form-field appearance="outline" class="example-form">
+              <mat-label>Area code</mat-label>
+              <input type="text"
+                matInput
+                name="areaCode"
+                ngModel
+                required
+                #areaCode="ngModel"
+                [(ngModel)]="userDataForm3.areaCode"
+                minlength="4"
+                maxlength="4"
+              /><mat-error
+                class="errorMessage"
+                *ngIf="areaCode && areaCode.invalid && areaCode.touched"
+                >This field is required</mat-error
+              >
+            </mat-form-field>
+        </div>
+
+
+
+
+      </div>
+      <div
+      class="buttons"
+      fxLayout="row"
+      fxLayoutAlign="space-between none"
+    >
+      <button mat-button matStepperPrevious class="clearButton">
+        Back
+      </button>
+      <button mat-button matStepperNext class="blackButton" [disabled]="form3.invalid" (click)="storeInputsInCom()">Next</button>
+
+    </div>
+
+</form>
